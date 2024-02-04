@@ -1,0 +1,10 @@
+Conteúdo da aplicação é a resolução de uma atividade com uso do framework NODE-RED para realizar a construção de uma API CRUD que manipula os dados que são apresentados em um data grid view.
+Nessa aplicação tem-se o uso de HTML, CSS, java Script, Banco de Dados SQL e Node-Red.
+A aplicação gera um data grid view com os dados que se encontram no banco de dados e então os iprime em uma data grid.
+A data grid conterá os dados a fim de se apresentar ao usuário, pois é possível através da chamada do módulo janelaSobreposta a inserção dos nomes das colunas da grid gerada e 3 opções (botões) que são: exluir - editar - vizualizar dados.
+O botão exluir irá excluir o elemento do DOM e  concomitantemente do banco de dados.
+Já os botões editar e vizualizar irão fazer o uso do módulo janelaSbreposta. Ao acionar o botão vizualizar irá gerar uma tela superior e nessa tela terá totos os dados a fim de se exibir, todos em modo de somente leitura; já o botão editar, será possível modificar as informçãoes ocntidas no bando exceto o id dos dados.
+
+OBS: para se fazer uso da aplicação para estudos os experimento, é necessário criar uma base de dados e gerar as rotas de acesso. No demais, se encontra explicação, através de comentários, do fluxo do processamento da aplicação.
+
+

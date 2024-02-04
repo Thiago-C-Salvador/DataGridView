@@ -1,0 +1,109 @@
+*{
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html body
+{
+    width:100%;
+    height: 100vh;
+
+}
+.estrutura-dgv
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.dgv-titulos
+{
+    width:fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #238;
+    color:#ffff;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.dgv-dados
+{
+    /* width:fit-content; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start; 
+}
+
+.dgv-dados-linhas
+{
+    width:fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start; 
+}
+
+.dgv-dados-linhas:hover
+{
+    background-color: #180 !important;
+    cursor: pointer;
+    color: #fff;
+}
+
+.dgv-titulos div, .dgv-dados-linhas div
+{
+    padding: 5px;
+}
+
+
+.dgv-dados-linhas:nth-child(odd)
+{
+    background-color: #8884;
+}
+
+.dgv-dados-linhas:nth-child(even)
+{
+    background-color: #8889;
+}
+
+.c1
+{
+    width: 50px;
+    text-align: center;
+}
+.c2, .c3, .c4
+{
+    text-align: center;
+    width: 120px;
+}
+
+.c5
+{
+    text-align: center;
+    width: 95px;
+}
+
+.imagens
+{
+    width: 20px;
+    height: 20px;
+    margin-left: 7px;
+}
+
+.button_popUp:hover
+{
+    background-color: rgb(97, 127, 244) !important;
+    border: 0.5px solid #000000;
+}
+
+.button_popUp:active
+{
+    border: 2px solid #000000 !important;
+    font-weight:600;
+}

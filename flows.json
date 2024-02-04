@@ -1,0 +1,330 @@
+[
+    {
+        "id": "412e4cc5fa8c141b",
+        "type": "tab",
+        "label": "API BD Data Grid View",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "39f36fb0d7fef4cf",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "curso-javascript",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "f7f0638b9b1a2976",
+        "type": "http in",
+        "z": "412e4cc5fa8c141b",
+        "name": "",
+        "url": "/produto",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "57c60c96d2b4e0ee"
+            ]
+        ]
+    },
+    {
+        "id": "8665236b29e73c80",
+        "type": "http response",
+        "z": "412e4cc5fa8c141b",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 670,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "57c60c96d2b4e0ee",
+        "type": "function",
+        "z": "412e4cc5fa8c141b",
+        "name": "function 1",
+        "func": "let query = \"SELECT * FROM produto\";\nmsg.topic = query;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 160,
+        "wires": [
+            [
+                "597c1ea4a2ae9bc1"
+            ]
+        ]
+    },
+    {
+        "id": "597c1ea4a2ae9bc1",
+        "type": "mysql",
+        "z": "412e4cc5fa8c141b",
+        "mydb": "39f36fb0d7fef4cf",
+        "name": "",
+        "x": 520,
+        "y": 160,
+        "wires": [
+            [
+                "8665236b29e73c80"
+            ]
+        ]
+    },
+    {
+        "id": "4b9616ef7881a58a",
+        "type": "http in",
+        "z": "412e4cc5fa8c141b",
+        "name": "",
+        "url": "/removeproduto/:id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 220,
+        "wires": [
+            [
+                "34ad79b8503278c7"
+            ]
+        ]
+    },
+    {
+        "id": "60b005f2f8909585",
+        "type": "http response",
+        "z": "412e4cc5fa8c141b",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 670,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "34ad79b8503278c7",
+        "type": "function",
+        "z": "412e4cc5fa8c141b",
+        "name": "function 2",
+        "func": "let id = msg.req.params.id;\nlet query = `DELETE FROM produto WHERE n_id_produto=${id}`;\nmsg.topic = query;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 220,
+        "wires": [
+            [
+                "634f5633622f02fd"
+            ]
+        ]
+    },
+    {
+        "id": "634f5633622f02fd",
+        "type": "mysql",
+        "z": "412e4cc5fa8c141b",
+        "mydb": "39f36fb0d7fef4cf",
+        "name": "",
+        "x": 520,
+        "y": 220,
+        "wires": [
+            [
+                "60b005f2f8909585",
+                "18bd0c055bed8c4f"
+            ]
+        ]
+    },
+    {
+        "id": "429dc8ddc0708223",
+        "type": "http in",
+        "z": "412e4cc5fa8c141b",
+        "name": "",
+        "url": "/viewproduto/:id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "211be5fa1ae04820"
+            ]
+        ]
+    },
+    {
+        "id": "9e703caae876fb04",
+        "type": "http response",
+        "z": "412e4cc5fa8c141b",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 670,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "211be5fa1ae04820",
+        "type": "function",
+        "z": "412e4cc5fa8c141b",
+        "name": "function 3",
+        "func": "let id = msg.req.params.id\nlet query = `SELECT * FROM produto WHERE  n_id_produto = ${id}`;\nmsg.topic = query;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 340,
+        "wires": [
+            [
+                "8c2a26e09b483c31"
+            ]
+        ]
+    },
+    {
+        "id": "8c2a26e09b483c31",
+        "type": "mysql",
+        "z": "412e4cc5fa8c141b",
+        "mydb": "39f36fb0d7fef4cf",
+        "name": "",
+        "x": 500,
+        "y": 340,
+        "wires": [
+            [
+                "9e703caae876fb04",
+                "4f5059f151a9da92"
+            ]
+        ]
+    },
+    {
+        "id": "18bd0c055bed8c4f",
+        "type": "debug",
+        "z": "412e4cc5fa8c141b",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "4f5059f151a9da92",
+        "type": "debug",
+        "z": "412e4cc5fa8c141b",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "07d93c0b4e879a90",
+        "type": "http in",
+        "z": "412e4cc5fa8c141b",
+        "name": "",
+        "url": "/updateproduto/:id/:nome/:marca/:modelo",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 460,
+        "wires": [
+            [
+                "5a5cbf7ed5594dd1"
+            ]
+        ]
+    },
+    {
+        "id": "1d113739644b8fdb",
+        "type": "http response",
+        "z": "412e4cc5fa8c141b",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 710,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "5a5cbf7ed5594dd1",
+        "type": "function",
+        "z": "412e4cc5fa8c141b",
+        "name": "function 4",
+        "func": "let id = msg.req.params.id;\nlet nome = msg.req.params.nome;\nlet marca = msg.req.params.marca;\nlet modelo = msg.req.params.modelo;\nlet query = `UPDATE produto SET s_nome_produto=\"${nome}\",s_marca_produto=\"${marca}\", s_modelo_produto=\"${modelo}\" WHERE n_id_produto=${id}`;\nmsg.topic = query;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 540,
+        "wires": [
+            [
+                "75a879c7360012a4"
+            ]
+        ]
+    },
+    {
+        "id": "75a879c7360012a4",
+        "type": "mysql",
+        "z": "412e4cc5fa8c141b",
+        "mydb": "39f36fb0d7fef4cf",
+        "name": "",
+        "x": 500,
+        "y": 540,
+        "wires": [
+            [
+                "1d113739644b8fdb",
+                "7038d91cc1faa5f3"
+            ]
+        ]
+    },
+    {
+        "id": "7038d91cc1faa5f3",
+        "type": "debug",
+        "z": "412e4cc5fa8c141b",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 560,
+        "wires": []
+    }
+]
